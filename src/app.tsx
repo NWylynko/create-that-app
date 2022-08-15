@@ -13,9 +13,10 @@ import { useAsync } from "./useAsync";
 interface AppProps {
   packageManager: PackageManagers;
   onlyTS: boolean;
+  dryrun: boolean;
 }
 
-const App: FC<AppProps> = ({ packageManager, onlyTS }) => {
+const App: FC<AppProps> = ({ packageManager, onlyTS, dryrun }) => {
   const inits = initialisers(getOptions(packageManager)).filter((i) => !onlyTS || i.typescript);
   const items = getItems(inits);
 
@@ -29,7 +30,11 @@ const App: FC<AppProps> = ({ packageManager, onlyTS }) => {
   const { execute } = useAsync(async () => {
     if (selectedInitialiser) {
       const command = selectedInitialiser.command({ name: appName });
-      await runner(command);
+      if (dryrun) {
+        console.log("command:", command);
+      } else {
+        await runner(command);
+      }
     } else {
       throw new Error("No initialiser selected");
     }
@@ -60,6 +65,7 @@ const App: FC<AppProps> = ({ packageManager, onlyTS }) => {
 
   return (
     <>
+      {dryrun && <Text>Running in Dry run mode, so the command will just be outputted</Text>}
       {showOptions && <SelectInput items={items} onSelect={handleSelect} />}
       {showNameInput && (
         <>

@@ -13,6 +13,7 @@ const cli = meow(
   Options
     --help            Show help
     -t, --typescript  Only show Typescript options
+    --dryrun          Just output the command
 `,
   {
     flags: {
@@ -20,10 +21,15 @@ const cli = meow(
         type: "boolean",
         alias: "t",
       },
+      dryrun: {
+        type: "boolean",
+      },
     },
   }
 );
 
 const packageManager = getPackageManager();
 
-render(<App packageManager={packageManager} onlyTS={cli.flags.typescript ?? false} />);
+render(
+  <App packageManager={packageManager} onlyTS={cli.flags.typescript ?? false} dryrun={cli.flags.dryrun ?? false} />
+);

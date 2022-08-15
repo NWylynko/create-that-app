@@ -1,7 +1,6 @@
 import { spawn } from 'child_process';
 
 export const runner = (command: string) => {
-  console.log({ command })
   return new Promise((resolve, reject) => {
     const shell = spawn(command, { 
       shell: true, 
