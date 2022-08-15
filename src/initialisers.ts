@@ -58,5 +58,19 @@ export const initialisers = ({ runner, manager }: Options): Initialiser[] => {
       command: ({ name }: CommandOptions) => `${runner}vue-app${latest} ${name}`,
       requiresName: true,
     },
+    {
+      id: uuid(),
+      name: `Nuxt`,
+      command: ({ name }: CommandOptions) => `${runner}nuxt-app${latest} ${name}`,
+      requiresName: true,
+      typescript: true
+    },
+    {
+      id: uuid(),
+      name: `Svelte`,
+      command: ({ name }: CommandOptions) => `${runner}degit${latest} sveltejs/template ${name}`,
+      requiresName: true,
+      typescript: true
+    }
   ]
 }
