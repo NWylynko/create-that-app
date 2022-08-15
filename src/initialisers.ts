@@ -1,7 +1,7 @@
 import { v4 as uuid } from "uuid";
 
 type NPM = {
-  runner: `npx create-`,
+  runner: `npx --yes create-`,
   manager: `npm`
 }
 
@@ -34,7 +34,7 @@ export const getOptions = (packageManager: PackageManagers): Options => {
   switch (packageManager) {
     case "npm":
       return {
-        runner: `npx create-`,
+        runner: `npx --yes create-`,
         manager: `npm`
       }
     case "yarn":
