@@ -4,7 +4,9 @@ import TextInput from "ink-text-input";
 import React, { FC, useEffect, useState } from "react";
 import { getInitialiser } from "./getInitialiser";
 import { getItems, Item } from "./getItems";
-import { getOptions, Initialiser, initialisers, PackageManagers } from "./initialisers";
+import { initialisers } from "./initialisers";
+import { Initialiser, PackageManagers } from "./types";
+import { getOptions } from "./getOptions";
 import { runner } from "./runner";
 import { useAsync } from "./useAsync";
 

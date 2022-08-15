@@ -1,5 +1,5 @@
 import { Item } from "./getItems";
-import { Initialiser } from "./initialisers";
+import { Initialiser } from "./types";
 
 export const getInitialiser = (inits: Initialiser[], item: Item) => {
   const init = inits.find((i) => i.id === item.value);

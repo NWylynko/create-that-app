@@ -1,4 +1,4 @@
-import type { Initialiser } from './initialisers';
+import { Initialiser } from "./types";
 
 
 export const getItems = (initialisers: Initialiser[]) => {
