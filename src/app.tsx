@@ -12,10 +12,11 @@ import { useAsync } from "./useAsync";
 
 interface AppProps {
   packageManager: PackageManagers;
+  onlyTS: boolean;
 }
 
-const App: FC<AppProps> = ({ packageManager }) => {
-  const inits = initialisers(getOptions(packageManager));
+const App: FC<AppProps> = ({ packageManager, onlyTS }) => {
+  const inits = initialisers(getOptions(packageManager)).filter((i) => !onlyTS || i.typescript);
   const items = getItems(inits);
 
   const [showOptions, setShowOptions] = useState(true);
