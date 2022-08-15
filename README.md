@@ -1,5 +1,5 @@
 # create-that-app
-A cli that displays a list of starters to select from, for the forgetful like me. Currently has popular options, feel free to make a PR if you want one added.
+A cli that displays a list of starters to select from, for the forgetful like me. Currently has popular options, feel free to make a PR or issue if you want one added.
 
 ![Demo](./demo.gif)
 
