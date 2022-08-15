@@ -5,6 +5,7 @@ import React, { FC, useEffect, useState } from "react";
 import { getInitialiser } from "./getInitialiser";
 import { getItems, Item } from "./getItems";
 import { getOptions, Initialiser, initialisers, PackageManagers } from "./initialisers";
+import { runner } from "./runner";
 import { useAsync } from "./useAsync";
 
 interface AppProps {
@@ -22,10 +23,10 @@ const App: FC<AppProps> = ({ packageManager }) => {
   const [selectedInitialiser, setSelectedInitialiser] = useState<Initialiser | undefined>(undefined);
   const [runInitialiser, setRunInitialiser] = useState(false);
 
-  const { execute, data } = useAsync(async () => {
+  const { execute } = useAsync(async () => {
     if (selectedInitialiser) {
       const command = selectedInitialiser.command({ name: appName });
-      return command;
+      await runner(command);
     } else {
       throw new Error("No initialiser selected");
     }
@@ -55,7 +56,7 @@ const App: FC<AppProps> = ({ packageManager }) => {
   }, [runInitialiser]);
 
   return (
-    <Box>
+    <>
       {showOptions && <SelectInput items={items} onSelect={handleSelect} />}
       {showNameInput && (
         <>
@@ -65,8 +66,7 @@ const App: FC<AppProps> = ({ packageManager }) => {
           <TextInput value={appName} onChange={setAppName} onSubmit={handleAppName} />
         </>
       )}
-      <Text>{data}</Text>
-    </Box>
+    </>
   );
 };
 
