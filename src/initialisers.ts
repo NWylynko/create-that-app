@@ -25,6 +25,19 @@ export const initialisers = ({ runner, manager }: Options): Initialiser[] => {
       command: ({}: CommandOptions) => `${runner}t3-app${latest}`,
       requiresName: false,
       typescript: true,
+    },
+    {
+      id: uuid(),
+      name: `Next App`,
+      command: ({}: CommandOptions) => `${runner}next-app${latest}`,
+      requiresName: false,
+    },
+    {
+      id: uuid(),
+      name: `Typescript Next App`,
+      command: ({}: CommandOptions) => `${runner}next-app${latest} --typescript`,
+      requiresName: false,
+      typescript: true,
     }
   ]
 }
