@@ -1,12 +1,13 @@
 import React, { FC } from "react";
 import { Text } from "ink";
-import { initialisers } from "./initialisers";
+import { getOptions, initialisers, PackageManagers } from "./initialisers";
 
-const App: FC = () => {
-  const inits = initialisers({
-    runner: "yarn create ",
-    manager: "yarn",
-  });
+interface AppProps {
+  packageManager: PackageManagers;
+}
+
+const App: FC<AppProps> = ({ packageManager }) => {
+  const inits = initialisers(getOptions(packageManager));
 
   const react = inits[1]?.command({ name: "my-react-app" });
 

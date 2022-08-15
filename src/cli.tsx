@@ -3,11 +3,7 @@ import React from "react";
 import { render } from "ink";
 // import meow from 'meow';
 import App from "./ui";
-
-const args = process.argv;
-const packageManager = process.env["npm_config_user_agent"];
-
-console.log({ args, packageManager });
+import { getPackageManager } from "./getPackageManager";
 
 // const cli = meow(`
 // 	Usage
@@ -27,4 +23,6 @@ console.log({ args, packageManager });
 // 	}
 // });
 
-render(<App />);
+const packageManager = getPackageManager();
+
+render(<App packageManager={packageManager} />);
