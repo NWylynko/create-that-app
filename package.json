@@ -9,7 +9,7 @@
 	"scripts": {
 		"build": "tsc && chmod +x dist/cli.js",
 		"start": "dist/cli.js",
-		"publish": "npx bumpp"
+		"push": "npx bumpp"
 	},
 	"files": [
 		"dist/cli.js"
