@@ -12,7 +12,7 @@
 		"push": "npx bumpp"
 	},
 	"files": [
-		"dist/cli.js"
+		"dist"
 	],
 	"dependencies": {
 		"ink": "^3.2.0",
