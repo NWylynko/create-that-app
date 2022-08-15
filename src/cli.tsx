@@ -5,8 +5,9 @@ import { render } from "ink";
 import App from "./ui";
 
 const args = process.argv;
+const packageManager = process.env["npm_config_user_agent"];
 
-console.log({ args });
+console.log({ args, packageManager });
 
 // const cli = meow(`
 // 	Usage
