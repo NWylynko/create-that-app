@@ -52,14 +52,14 @@ export const initialisers = ({ runner, create, manager }: Option): Initialiser[]
     {
       id: uuid(),
       name: `Vue`,
-      command: ({}) => `${c}vue-app${latest}`,
-      requiresName: false,
+      command: ({ name }) => `${c}vue-app${latest} ${name}`,
+      requiresName: true,
     },
     {
       id: uuid(),
       name: `Nuxt`,
-      command: ({}) => `${c}nuxt-app${latest}`,
-      requiresName: false,
+      command: ({ name }) => `${c}nuxt-app${latest} ${name}`,
+      requiresName: true,
       typescript: true
     },
     // { while this works with npx, yarn dlx is failing
