@@ -1,6 +1,6 @@
 // heavily inspired and stolen from https://github.com/t3-oss/create-t3-app/blob/47ab51d39b075fa243fe734ccdb0b6a2d6d2b310/src/utils/getUserPkgManager.ts
 
-import { PackageManagers } from "./types";
+import { PackageManagers } from "./getOptions";
 
 export const getPackageManager = (): PackageManagers => {
 

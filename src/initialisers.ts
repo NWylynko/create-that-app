@@ -1,76 +1,75 @@
 import { v4 as uuid } from "uuid";
-import type { Options, Initialiser, CommandOptions } from "./types";
+import type { Option } from "./getOptions";
+import type { Initialiser } from "./types";
 
-export const initialisers = ({ runner, manager }: Options): Initialiser[] => {
+export const initialisers = ({ runner, create, manager }: Option): Initialiser[] => {
 
   const latest = manager !== "yarn" ? `@latest` : ``
 
-  return [
+  const c = `${runner}${create}`;
+
+  const inits: Initialiser[] = [
     {
       id: uuid(),
       name: `React`,
-      command: ({ name }: CommandOptions) => `${runner}react-app${latest} ${name}`,
+      command: ({ name }) => `${c}react-app${latest} ${name}`,
       requiresName: true,
     },
     {
       id: uuid(),
       name: `Typescript React`,
-      command: ({ name }: CommandOptions) => `${runner}react-app${latest} ${name} --template typescript`,
+      command: ({ name }) => `${c}react-app${latest} ${name} --template typescript`,
       requiresName: true,
       typescript: true,
     },
     {
       id: uuid(),
       name: `T3`,
-      command: ({}: CommandOptions) => `${runner}t3-app${latest}`,
+      command: ({}) => `${c}t3-app${latest}`,
       requiresName: false,
       typescript: true,
     },
     {
       id: uuid(),
       name: `Next`,
-      command: ({}: CommandOptions) => `${runner}next-app${latest}`,
+      command: ({}) => `${c}next-app${latest}`,
       requiresName: false,
     },
     {
       id: uuid(),
       name: `Typescript Next`,
-      command: ({}: CommandOptions) => `${runner}next-app${latest} --typescript`,
+      command: ({}) => `${c}next-app${latest} --typescript`,
       requiresName: false,
       typescript: true,
     },
     {
       id: uuid(),
       name: `Gatsby`,
-      command: ({ name }: CommandOptions) => `${runner}gatsby${latest} ${name}`,
-      requiresName: true,
-    },
-    {
-      id: uuid(),
-      name: `Typescript Gatsby`,
-      command: ({ name }: CommandOptions) => `${runner}gatsby${latest} ${name} --ts`,
-      requiresName: true,
+      command: ({}) => `${c}gatsby${latest}`,
+      requiresName: false,
       typescript: true,
     },
     {
       id: uuid(),
       name: `Vue`,
-      command: ({ name }: CommandOptions) => `${runner}vue-app${latest} ${name}`,
-      requiresName: true,
+      command: ({}) => `${c}vue-app${latest}`,
+      requiresName: false,
     },
     {
       id: uuid(),
       name: `Nuxt`,
-      command: ({ name }: CommandOptions) => `${runner}nuxt-app${latest} ${name}`,
-      requiresName: true,
+      command: ({}) => `${c}nuxt-app${latest}`,
+      requiresName: false,
       typescript: true
     },
     {
       id: uuid(),
       name: `Svelte`,
-      command: ({ name }: CommandOptions) => `${runner}degit${latest} sveltejs/template ${name}`,
+      command: ({ name }) => `${runner}degit${latest} sveltejs/template ${name}`,
       requiresName: true,
       typescript: true
     }
   ]
+
+  return inits;
 }

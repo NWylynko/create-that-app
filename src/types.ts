@@ -1,29 +1,19 @@
-type NPM = {
-  runner: `npx --yes create-`;
-  manager: `npm`;
+
+type NameOption = {
+  name: string;
 };
 
-type Yarn = {
-  runner: `yarn create `;
-  manager: `yarn`;
-};
+export type CommandOptions = {}
 
-type PNPM = {
-  runner: `pnpm -s dlx create-`;
-  manager: `pnpm`;
-};
-
-export type CommandOptions = {
-  name?: string;
-};
-
-export type Options = NPM | Yarn | PNPM;
-export type PackageManagers = Options["manager"];
 
 export type Initialiser = {
   id: string;
   name: string;
-  command: (options: CommandOptions) => string;
-  requiresName: boolean;
   typescript?: boolean;
-};
+} & ({
+  command: (options: CommandOptions & NameOption) => string;
+  requiresName: true;
+} | {
+  command: (options: CommandOptions) => string;
+  requiresName: false;
+})

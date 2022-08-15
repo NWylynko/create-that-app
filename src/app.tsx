@@ -5,8 +5,8 @@ import React, { FC, useEffect, useState } from "react";
 import { getInitialiser } from "./getInitialiser";
 import { getItems, Item } from "./getItems";
 import { initialisers } from "./initialisers";
-import { Initialiser, PackageManagers } from "./types";
-import { getOptions } from "./getOptions";
+import { Initialiser } from "./types";
+import { getOptions, PackageManagers } from "./getOptions";
 import { runner } from "./runner";
 import { useAsync } from "./useAsync";
 
