@@ -52,7 +52,7 @@ export const getOptions = (packageManager: PackageManagers): Options => {
 
 export const initialisers = ({ runner, manager }: Options): Initialiser[] => {
 
-  const latest = manager !== "yarn" && `@latest`
+  const latest = manager !== "yarn" ? `@latest` : ``
 
   return [
     {
