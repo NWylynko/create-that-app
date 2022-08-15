@@ -1,3 +1,4 @@
+import { v4 as uuid } from "uuid";
 
 type NPM = {
   runner: `npx create-`,
@@ -21,7 +22,8 @@ type CommandOptions = {
 type Options = NPM | Yarn | PNPM
 export type PackageManagers = Options["manager"];
 
-type Initialiser = {
+export type Initialiser = {
+  id: string;
   name: string;
   command: (options: CommandOptions) => string;
   requiresName: boolean;
@@ -56,14 +58,23 @@ export const initialisers = ({ runner, manager }: Options): Initialiser[] => {
 
   return [
     {
+      id: uuid(),
       name: `React App`,
       command: ({ name }: CommandOptions) => `${runner}react-app${latest} ${name}`,
       requiresName: true,
     },
     {
+      id: uuid(),
       name: `Typescript React App`,
       command: ({ name }: CommandOptions) => `${runner}react-app${latest} ${name} --template typescript`,
       requiresName: true,
+      typescript: true,
+    },
+    {
+      id: uuid(),
+      name: `T3 App`,
+      command: ({}: CommandOptions) => `${runner}t3-app${latest}`,
+      requiresName: false,
       typescript: true,
     }
   ]

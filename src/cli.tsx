@@ -2,7 +2,7 @@
 import React from "react";
 import { render } from "ink";
 // import meow from 'meow';
-import App from "./ui";
+import App from "./app";
 import { getPackageManager } from "./getPackageManager";
 
 // const cli = meow(`
