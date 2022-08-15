@@ -7,7 +7,7 @@ type Yarn = {
   manager: `yarn`;
 };
 type PNPM = {
-  runner: `pnpm dlx -s create-`;
+  runner: `pnpm -s dlx create-`;
   manager: `pnpm`;
 };
 export type CommandOptions = {

@@ -15,7 +15,7 @@ export const getOptions = (packageManager: PackageManagers): Options => {
       };
     case "pnpm":
       return {
-        runner: `pnpm dlx -s create-`,
+        runner: `pnpm -s dlx create-`,
         manager: `pnpm`
       };
     default:
