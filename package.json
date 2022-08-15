@@ -1,6 +1,6 @@
 {
 	"name": "create-that-app",
-	"version": "0.0.5",
+	"version": "0.1.0",
 	"license": "MIT",
 	"bin": "dist/cli.js",
 	"engines": {
