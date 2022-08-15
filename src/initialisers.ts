@@ -62,13 +62,13 @@ export const initialisers = ({ runner, create, manager }: Option): Initialiser[]
       requiresName: false,
       typescript: true
     },
-    {
-      id: uuid(),
-      name: `Svelte`,
-      command: ({ name }) => `${runner}degit${latest} sveltejs/template ${name}`,
-      requiresName: true,
-      typescript: true
-    }
+    // { while this works with npx, yarn dlx is failing
+    //   id: uuid(),
+    //   name: `Svelte`,
+    //   command: ({ name }) => `${runner}degit${latest} sveltejs/template ${name}`,
+    //   requiresName: true,
+    //   typescript: true
+    // }
   ]
 
   return inits;
