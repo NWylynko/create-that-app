@@ -1,14 +1,15 @@
 {
 	"name": "create-that-app",
-	"version": "0.0.1",
+	"version": "0.0.0",
 	"license": "MIT",
 	"bin": "dist/cli.js",
 	"engines": {
-		"node": ">=10"
+		"node": ">=14"
 	},
 	"scripts": {
 		"build": "tsc && chmod +x dist/cli.js",
-		"start": "dist/cli.js"
+		"start": "dist/cli.js",
+		"publish": "npx bumpp"
 	},
 	"files": [
 		"dist/cli.js"
