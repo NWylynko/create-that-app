@@ -2,14 +2,17 @@ type NPM = {
   runner: `npx --yes create-`;
   manager: `npm`;
 };
+
 type Yarn = {
   runner: `yarn create `;
   manager: `yarn`;
 };
+
 type PNPM = {
   runner: `pnpm -s dlx create-`;
   manager: `pnpm`;
 };
+
 export type CommandOptions = {
   name?: string;
 };
