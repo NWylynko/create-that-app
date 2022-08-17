@@ -67,7 +67,14 @@ export const initialisers = ({ runner, create, manager }: Option): Initialiser[]
     //   command: ({ name }) => `${runner}degit${latest} sveltejs/template ${name}`,
     //   requiresName: true,
     //   typescript: true
-    // }
+    // },
+    {
+      id: `sst`,
+      name: `SST`,
+      command: ({ name }) => `${c}sst${latest} ${name}`,
+      requiresName: true,
+      typescript: true
+    }
   ]
 
   return inits;
