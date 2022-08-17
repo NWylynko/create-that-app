@@ -16,6 +16,7 @@
 		"dist"
 	],
 	"dependencies": {
+		"axios": "^0.27.2",
 		"ink": "^3.2.0",
 		"ink-select-input": "^4.2.1",
 		"ink-text-input": "^4.0.3",

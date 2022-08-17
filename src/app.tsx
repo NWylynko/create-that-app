@@ -9,6 +9,8 @@ import { Initialiser } from "./types";
 import { getOptions, PackageManagers } from "./getOptions";
 import { runner } from "./runner";
 import { useAsync } from "./useAsync";
+import { report } from "./popularity";
+import { sortItems } from "./sortItems";
 
 interface AppProps {
   packageManager: PackageManagers;
@@ -18,7 +20,11 @@ interface AppProps {
 
 const App: FC<AppProps> = ({ packageManager, onlyTS, dryrun }) => {
   const inits = initialisers(getOptions(packageManager)).filter((i) => !onlyTS || i.typescript);
-  const items = getItems(inits);
+  const { data: items, execute: fetchItems, loading } = useAsync(() => sortItems(getItems(inits)));
+
+  useEffect(() => {
+    fetchItems();
+  }, []);
 
   const [showOptions, setShowOptions] = useState(true);
   const [showNameInput, setShowNameInput] = useState(false);
@@ -33,7 +39,7 @@ const App: FC<AppProps> = ({ packageManager, onlyTS, dryrun }) => {
       if (dryrun) {
         console.log("command:", command);
       } else {
-        await runner(command);
+        await Promise.all([runner(command), report(selectedInitialiser.id)]);
       }
     } else {
       throw new Error("No initialiser selected");
@@ -65,8 +71,9 @@ const App: FC<AppProps> = ({ packageManager, onlyTS, dryrun }) => {
 
   return (
     <>
+      {loading && <Text>Loading...</Text>}
       {dryrun && <Text>Running in Dry run mode, so the command will just be outputted</Text>}
-      {showOptions && <SelectInput items={items} onSelect={handleSelect} />}
+      {showOptions && items && <SelectInput items={items} onSelect={handleSelect} />}
       {showNameInput && (
         <>
           <Box marginRight={1}>
