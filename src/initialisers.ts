@@ -1,4 +1,3 @@
-import { v4 as uuid } from "uuid";
 import type { Option } from "./getOptions";
 import type { Initialiser } from "./types";
 
@@ -10,60 +9,60 @@ export const initialisers = ({ runner, create, manager }: Option): Initialiser[]
 
   const inits: Initialiser[] = [
     {
-      id: uuid(),
+      id: `react`,
       name: `React`,
       command: ({ name }) => `${c}react-app${latest} ${name}`,
       requiresName: true,
     },
     {
-      id: uuid(),
+      id: `typescript-react`,
       name: `Typescript React`,
       command: ({ name }) => `${c}react-app${latest} ${name} --template typescript`,
       requiresName: true,
       typescript: true,
     },
     {
-      id: uuid(),
+      id: `t3`,
       name: `T3`,
       command: ({}) => `${c}t3-app${latest}`,
       requiresName: false,
       typescript: true,
     },
     {
-      id: uuid(),
+      id: `next`,
       name: `Next`,
       command: ({}) => `${c}next-app${latest}`,
       requiresName: false,
     },
     {
-      id: uuid(),
+      id: `typescript-next`,
       name: `Typescript Next`,
       command: ({}) => `${c}next-app${latest} --typescript`,
       requiresName: false,
       typescript: true,
     },
     {
-      id: uuid(),
+      id: `gatsby`,
       name: `Gatsby`,
       command: ({}) => `${c}gatsby${latest}`,
       requiresName: false,
       typescript: true,
     },
     {
-      id: uuid(),
+      id: `vue`,
       name: `Vue`,
       command: ({ name }) => `${c}vue-app${latest} ${name}`,
       requiresName: true,
     },
     {
-      id: uuid(),
+      id: `nuxt`,
       name: `Nuxt`,
       command: ({ name }) => `${c}nuxt-app${latest} ${name}`,
       requiresName: true,
       typescript: true
     },
     // { while this works with npx, yarn dlx is failing
-    //   id: uuid(),
+    //   id: `svelte`,
     //   name: `Svelte`,
     //   command: ({ name }) => `${runner}degit${latest} sveltejs/template ${name}`,
     //   requiresName: true,
