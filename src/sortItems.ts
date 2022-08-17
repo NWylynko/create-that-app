@@ -8,8 +8,6 @@ export const sortItems = async (items: Item[]) => {
     const aPopular = popular.find(p => p.id === a.value) ?? { id: a.value, count: 0 };
     const bPopular = popular.find(p => p.id === b.value) ?? { id: b.value, count: 0 };
 
-    console.log({ aPopular, bPopular });
-
     if (aPopular && bPopular) {
       return bPopular.count - aPopular.count;
     }
