@@ -71,6 +71,7 @@ const App: FC<AppProps> = ({ packageManager, onlyTS, dryrun }) => {
 
   return (
     <>
+      <Text>Create That App</Text>
       {loading && <Text>Loading...</Text>}
       {dryrun && <Text>Running in Dry run mode, so the command will just be outputted</Text>}
       {showOptions && items && <SelectInput items={items} onSelect={handleSelect} />}
