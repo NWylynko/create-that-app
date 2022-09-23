@@ -24,27 +24,27 @@ export const initialisers = ({ runner, create, manager }: Option): Initialiser[]
     {
       id: `t3`,
       name: `T3`,
-      command: ({}) => `${c}t3-app${latest}`,
+      command: ({ }) => `${c}t3-app${latest}`,
       requiresName: false,
       typescript: true,
     },
     {
       id: `next`,
       name: `Next`,
-      command: ({}) => `${c}next-app${latest}`,
+      command: ({ }) => `${c}next-app${latest}`,
       requiresName: false,
     },
     {
       id: `typescript-next`,
       name: `Typescript Next`,
-      command: ({}) => `${c}next-app${latest} --typescript`,
+      command: ({ }) => `${c}next-app${latest} --typescript`,
       requiresName: false,
       typescript: true,
     },
     {
       id: `gatsby`,
       name: `Gatsby`,
-      command: ({}) => `${c}gatsby${latest}`,
+      command: ({ }) => `${c}gatsby${latest}`,
       requiresName: false,
       typescript: true,
     },
@@ -73,6 +73,13 @@ export const initialisers = ({ runner, create, manager }: Option): Initialiser[]
       name: `SST`,
       command: ({ name }) => `${c}sst${latest} ${name}`,
       requiresName: true,
+      typescript: true
+    },
+    {
+      id: `turborepo`,
+      name: `Turborepo`,
+      command: () => `${c}turbo${latest}`,
+      requiresName: false,
       typescript: true
     }
   ]
