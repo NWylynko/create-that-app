@@ -81,6 +81,13 @@ export const initialisers = ({ runner, create, manager }: Option): Initialiser[]
       command: () => `${c}turbo${latest}`,
       requiresName: false,
       typescript: true
+    },
+    {
+      id: `docusaurus-classic`,
+      name: `Docusaurus Classic`,
+      command: ({ name }) => `${c}docusaurus${latest} ${name} classic`,
+      requiresName: true,
+      typescript: true
     }
   ]
 
