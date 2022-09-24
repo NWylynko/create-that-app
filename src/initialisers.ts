@@ -87,6 +87,13 @@ export const initialisers = ({ runner, create, manager }: Option): Initialiser[]
       name: `Docusaurus Classic`,
       command: ({ name }) => `${c}docusaurus${latest} ${name} classic`,
       requiresName: true,
+      typescript: false
+    },
+    {
+      id: `docusaurus-classic-typescript`,
+      name: `Docusaurus Classic Typescript`,
+      command: ({ name }) => `${c}docusaurus${latest} ${name} classic --typescript`,
+      requiresName: true,
       typescript: true
     }
   ]
