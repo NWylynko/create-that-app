@@ -95,6 +95,18 @@ export const initialisers = ({ runner, create, manager }: Option): Initialiser[]
       command: ({ name }) => `${c}docusaurus${latest} ${name} classic --typescript`,
       requiresName: true,
       typescript: true
+    }, {
+      id: `expo`,
+      name: `Expo`,
+      command: ({ name }) => `${c}expo-app${latest} ${name}`,
+      requiresName: true,
+      typescript: false,
+    }, {
+      id: `expo-typescript`,
+      name: `Expo Typescript`,
+      command: ({ name }) => `${c}expo-app${latest} ${name} -t expo-template-blank-typescript`,
+      requiresName: true,
+      typescript: true
     }
   ]
 
