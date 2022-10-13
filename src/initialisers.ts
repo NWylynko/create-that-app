@@ -107,6 +107,13 @@ export const initialisers = ({ runner, create, manager }: Option): Initialiser[]
       command: ({ name }) => `${c}expo-app${latest} ${name} -t expo-template-blank-typescript`,
       requiresName: true,
       typescript: true
+    },
+    {
+      id: `remix`,
+      name: `Remix`,
+      command: ({ name }) => `${c}remix${latest} ${name}`,
+      requiresName: true,
+      typescript: true
     }
   ]
 
