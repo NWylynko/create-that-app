@@ -121,6 +121,13 @@ export const initialisers = ({ runner, create, manager }: Option): Initialiser[]
       command: () => `${c}vite${latest}`,
       requiresName: false,
       typescript: true
+    },
+    {
+      id: `astro`,
+      name: `Astro`,
+      command: () => `${c}astro${latest}`,
+      requiresName: false,
+      typescript: true
     }
   ]
 
